@@ -10,11 +10,11 @@ signal damage_taken
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coins"):
 		area.pickup()
-		emit_signal("pickup")  # just emit signal
+		emit_signal("pickup")
 
 func _physics_process(delta):
 	if !is_on_floor():
-		velocity.y += gravity_value * delta  # use built-in velocity
+		velocity.y += gravity_value * delta
 
 	var direction = Input.get_axis("move_left", "move_right")
 
