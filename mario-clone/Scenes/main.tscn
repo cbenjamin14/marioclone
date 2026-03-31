@@ -1,0 +1,52 @@
+[gd_scene format=4 uid="uid://cxywkmq3pf74n"]
+
+[ext_resource type="Texture2D" uid="uid://n7j87gx5hjdo" path="res://Assets/Background.png" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://blbdg47v1llno" path="res://Scripts/main.gd" id="1_344ge"]
+[ext_resource type="Texture2D" uid="uid://bls3jtt3kmdnf" path="res://Assets/Grass.png" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b4vwnafrwqyeg" path="res://Scenes/player.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cg7byeqtlpk7a" path="res://Scenes/flag.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b8hd302teh0ch" path="res://Scenes/slime.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://d4k244ku2uu7f" path="res://Scenes/coin.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://kt4o8ftl42j" path="res://Scenes/hud.tscn" id="7_6bp64"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kry3j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
+texture = ExtResource("2_jjvhh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_6bp64"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_kry3j")
+sources/0 = SubResource("TileSetAtlasSource_21xkr")
+
+[node name="Main" type="Node" unique_id=12326942]
+script = ExtResource("1_344ge")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=1595287630]
+position = Vector2(333, -39.999985)
+scale = Vector2(10.770887, 10.916317)
+texture = ExtResource("1_8gbba")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=259056247]
+position = Vector2(333, -39.999985)
+scale = Vector2(4.784375, 4.7843757)
+texture = ExtResource("1_8gbba")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=520828062]
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAASAP7/AAAAAAAAAAATAP7/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAaAP//AAAAAAAAAAAeAP//AAAAAAAAAAAnAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAlAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAhAP//AAAAAAAAAAAzAAAAAAAAAAAAAAAyAAAAAAAAAAAAAAAxAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAvAAAAAAAAAAAAAAAuAAAAAAAAAAAAAAAtAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAArAAAAAAAAAAAAAAAyAP//AAAAAAAAAAAsAP//AAAAAAAAAAA0AAAAAAAAAAAAAAA1AAAAAAAAAAAAAAA2AAAAAAAAAAAAAAA3AAAAAAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_6bp64")
+
+[node name="Flag" parent="." unique_id=200675452 instance=ExtResource("4_kry3j")]
+position = Vector2(871, 0)
+
+[node name="Slime" parent="." unique_id=2071560859 instance=ExtResource("5_21xkr")]
+position = Vector2(731, -8)
+
+[node name="Hud" parent="." unique_id=1100125760 instance=ExtResource("7_6bp64")]
+
+[node name="Coin" parent="." unique_id=255548996 instance=ExtResource("6_21xkr")]
+position = Vector2(31, -9)
+
+[node name="Player" parent="." unique_id=1705295146 instance=ExtResource("3_kry3j")]

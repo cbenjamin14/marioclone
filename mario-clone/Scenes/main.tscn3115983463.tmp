@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://cxywkmq3pf74n"]
+
+[ext_resource type="Texture2D" uid="uid://n7j87gx5hjdo" path="res://Assets/Background.png" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://bls3jtt3kmdnf" path="res://Assets/Grass.png" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b4vwnafrwqyeg" path="res://Scenes/player.tscn" id="3_kry3j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
+texture = ExtResource("2_jjvhh")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6bp64"]
+sources/0 = SubResource("TileSetAtlasSource_21xkr")
+
+[node name="Main" type="Node" unique_id=12326942]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=259056247]
+position = Vector2(168, -119.999985)
+scale = Vector2(4.784375, 4.7843757)
+texture = ExtResource("1_8gbba")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=520828062]
+tile_map_data = PackedByteArray("AAAMAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD4/wEAAAAAAAAAAAD3/wEAAAAAAAAAAAD2/wEAAAAAAAAAAAD1/wEAAAAAAAAAAAD0/wEAAAAAAAAAAADz/wEAAAAAAAAAAADy/wEAAAAAAAAAAADx/wEAAAAAAAAAAADw/wEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_6bp64")
+
+[node name="Player" parent="." unique_id=1705295146 instance=ExtResource("3_kry3j")]
+move_speed = 140.0
+gravity_value = 900.0

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b8hd302teh0ch"]
+
+[ext_resource type="Script" uid="uid://d1ogovvs5tuti" path="res://Scripts/slime.gd" id="1_swwnm"]
+[ext_resource type="Texture2D" uid="uid://dodeb8l2hrm1i" path="res://Assets/Enemy.png" id="2_aiwxb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jc4t"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aiwxb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4l1t8"]
+size = Vector2(16, 9)
+
+[node name="Slime" type="CharacterBody2D" unique_id=2071560859 groups=["slime"]]
+collision_layer = 2
+script = ExtResource("1_swwnm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=500222808]
+sprite_frames = SubResource("SpriteFrames_5jc4t")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1433730295 groups=["slime"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821062840]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4l1t8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
